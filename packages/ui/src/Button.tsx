@@ -1,23 +1,36 @@
-import * as React from 'react';
+import cx from 'classnames';
 
 export const Button = ({
   primary,
   label,
   size,
-  backgroundColor,
+  backgroundColor = '#cf2d6c',
+  color = 'white',
+  link,
 }: {
   primary?: boolean;
   label: string;
-  size?: 'large' | 'small';
+  size?: 'sm' | 'lg';
   backgroundColor?: string;
+  color?: string;
+  link?: string;
 }) => {
   return (
-    <div className='rounded-md '>
-      <a href='https://turbo.build/repo/docs'>
-        <div className='ui-flex ui-w-full ui-items-center ui-justify-center ui-rounded-md ui-border ui-border-transparent ui-bg-white ui-px-8 ui-py-3 ui-text-base ui-font-medium ui-text-black ui-no-underline hover:ui-bg-gray-300 md:ui-px-10 md:ui-py-3 md:ui-text-lg md:ui-leading-6'>
-          {label}
-        </div>
-      </a>
-    </div>
+    <a href={link}>
+      <button
+        style={{ backgroundColor, color }}
+        className={cx(
+          'ui-rounded-md ui-border-2 ui-font-medium ui-no-underline hover:ui-bg-gray-300 md:ui-px-10 md:ui-py-3 md:ui-text-lg md:ui-leading-6',
+          {
+            'ui-px-8 ui-py-3 ui-text-2xl': size === 'lg',
+            'ui-px-4 ui-py-2 ui-text-base': size === 'sm',
+            'ui-border-transparent': primary === true,
+            'ui-border-black': primary === false,
+          }
+        )}
+      >
+        {label}
+      </button>
+    </a>
   );
 };

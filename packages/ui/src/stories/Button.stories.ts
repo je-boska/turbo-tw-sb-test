@@ -20,25 +20,16 @@ export const Primary: Story = {
   args: {
     primary: true,
     label: 'Primary Button',
+    size: 'lg',
   },
 };
 
 export const Secondary: Story = {
   args: {
+    primary: false,
     label: 'Secondary Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Large Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Small Button',
+    size: 'sm',
+    backgroundColor: 'white',
+    color: 'black',
   },
 };
